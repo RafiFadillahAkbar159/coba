@@ -1,0 +1,78 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int N; // Jumlah permukaan tertutup
+    string pilihan, cari; //Deklarasi pilihan dan cari
+    
+do
+    {
+    // Jumlah permukaan tertutup
+    cout << "Masukkan jumlah permukaan tertutup : ";
+    cin >> N;
+    cout << "\n";
+    
+    float permukaan[N]; // Array untuk menyimpan luas permukaan
+    float medanListrik; // Nilai medan listrik (E)
+    float fluksListrik[N]; // Array untuk menyimpan fluks listrik
+    float totalFluks = 0; // Total fluks listrik
+    float sisi [N], luas [N]; //Array untuk menyimpan sisi dan luas untuk luas permukaan
+   
+    // Meminta pengguna untuk memasukkan sisi bidang permukaan
+    for (int i = 0; i < N; i++) {
+        cout << "Sisi bidang permukaan ke-" << i + 1 << ": ";
+        cin >> sisi[i];
+    }
+    cout << "\n";
+    
+    // Menghitung luas bidang permukaan
+    for (int i = 0; i < N; i++) {
+        luas[i] = sisi[i] * sisi[i];
+    }
+
+    // Mengisi nilai medan listrik
+    cout << "Masukkan nilai medan listrik (E): ";
+    cin >> medanListrik;
+    cout << "\n";
+    
+    // Menghitung fluks listrik
+    for (int i = 0; i < N; i++) {
+        fluksListrik[i] = medanListrik * luas[i];
+        totalFluks += fluksListrik[i];
+    }
+
+    // Menampilkan hasil
+    cout << "Fluks listrik pada setiap permukaan:\n";
+    for (int i = 0; i < N; i++) {
+        cout << "Permukaan ke-" << i + 1 << ": " << fluksListrik[i] << endl;
+    }
+    cout << "\n";
+    
+    // Mencari total fluks listrik dan meminta pengulangan program
+    cout << "Apakah anda ingin mencari total fluks listrik? (ya/no) ";
+    cin >> cari;
+    cout << "\n";
+    if (cari == "ya" || cari == "Ya" || cari == "YA") {
+        cout << "Total fluks listrik: " << totalFluks << endl;
+        cout << "\n";
+        cout << "Apakah Anda ingin mengulang program? (ya/no) ";
+        cin >> pilihan;
+        cout << "\n";
+    } else {
+        cout << "Apakah Anda ingin mengulang program? (ya/no) ";
+        cin >> pilihan;
+        cout << "\n";
+    }
+    cout << "\n";
+    
+    }
+    while (pilihan == "ya" || pilihan == "Ya" || pilihan == "YA");
+    cout << "Terima kasih telah menggunakan program ini." << endl;
+
+    return 0;
+}
+
+//Richard Alvin Julianto_122130037_Teknik Elektro
+//Richo Darmawan Arieprasodjo_122130048_Teknik Elektro
+//Rafi Fadillah Akbar_122130057_Teknik Elektro
